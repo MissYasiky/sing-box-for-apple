@@ -11,9 +11,13 @@ public enum NavigationPage: Int, CaseIterable, Identifiable {
     #if os(macOS)
         case groups
     #endif
+    #if DEBUG
     case logs
+    #endif
     case profiles
+    #if DEBUG
     case settings
+    #endif
 }
 
 public extension NavigationPage {
@@ -36,12 +40,16 @@ public extension NavigationPage {
             case .groups:
                 return NSLocalizedString("Groups", comment: "")
         #endif
+        #if DEBUG
         case .logs:
             return NSLocalizedString("Logs", comment: "")
+        #endif
         case .profiles:
             return NSLocalizedString("Profiles", comment: "")
+        #if DEBUG
         case .settings:
             return NSLocalizedString("Settings", comment: "")
+        #endif
         }
     }
 
@@ -53,12 +61,16 @@ public extension NavigationPage {
             case .groups:
                 return "rectangle.3.group.fill"
         #endif
+        #if DEBUG
         case .logs:
             return "doc.text.fill"
+        #endif
         case .profiles:
             return "list.bullet.rectangle.fill"
+        #if DEBUG
         case .settings:
             return "gear.circle.fill"
+        #endif
         }
     }
 
@@ -72,12 +84,16 @@ public extension NavigationPage {
                 case .groups:
                     GroupListView()
             #endif
+            #if DEBUG
             case .logs:
                 LogView()
+            #endif
             case .profiles:
                 ProfileView()
+            #if DEBUG
             case .settings:
                 SettingView()
+            #endif
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)

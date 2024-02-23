@@ -41,9 +41,11 @@ struct MainView: View {
             }
         }
         .onChangeCompat(of: selection) { newValue in
+        #if DEBUG
             if newValue == .logs {
                 environments.connectLog()
             }
+        #endif
         }
         .environment(\.selection, $selection)
         .environment(\.importProfile, $importProfile)
