@@ -98,6 +98,7 @@ public struct SettingView: View {
             ForEach([Tabs.core, Tabs.packetTunnel, Tabs.profileOverride]) { it in
                 it.navigationLink
             }
+            /*
             Section("About") {
                 Link(destination: URL(string: "https://sing-box.sagernet.org/")!) {
                     Label("Documentation", systemImage: "doc.on.doc.fill")
@@ -115,12 +116,14 @@ public struct SettingView: View {
                     }
                 #endif
             }
+             */
             Section("Debug") {
                 NavigationLink {
                     ServiceLogView()
                 } label: {
                     Label("Service Log", systemImage: "doc.on.clipboard")
                 }
+                /*
                 FormTextItem("Taiwan Flag Available", "touchid") {
                     if isLoading {
                         Text("Loading...")
@@ -134,6 +137,7 @@ public struct SettingView: View {
                         Text(taiwanFlagAvailable.description)
                     }
                 }
+                 */
             }
         }
         .navigationTitle("Settings")
