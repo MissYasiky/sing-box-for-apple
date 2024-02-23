@@ -160,7 +160,7 @@ open class ExtensionProvider: NEPacketTunnelProvider {
 
     override open func sleep() async {
         if let boxService {
-            boxService.pause()
+            boxService.sleep()
         }
     }
 
