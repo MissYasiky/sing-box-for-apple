@@ -21,7 +21,7 @@
 	<false/>
 	<key>NSUbiquitousContainers</key>
 	<dict>
-		<key>iCloud.io.nekohasekai.sfa</key>
+		<key>iCloud.com.bainian.sfa</key>
 		<dict>
 			<key>NSUbiquitousContainerIsDocumentScopePublic</key>
 			<true/>
@@ -42,7 +42,7 @@
 			<string>Owner</string>
 			<key>LSItemContentTypes</key>
 			<array>
-				<string>io.nekohasekai.sfa.profile</string>
+				<string>com.bainian.sfa.profile</string>
 			</array>
 			<key>CFBundleTypeIconFile</key>
 			<string>AppIcon.icns</string>
@@ -62,7 +62,7 @@
 			<key>UTTypeIconFiles</key>
 			<array/>
 			<key>UTTypeIdentifier</key>
-			<string>io.nekohasekai.sfa.profile</string>
+			<string>com.bainian.sfa.profile</string>
 			<key>UTTypeTagSpecification</key>
 			<dict>
 				<key>public.filename-extension</key>
@@ -88,7 +88,7 @@
 				<string>AppIcon.icns</string>
 			</array>
 			<key>UTTypeIdentifier</key>
-			<string>io.nekohasekai.sfa.profile</string>
+			<string>com.bainian.sfa.profile</string>
 			<key>UTTypeTagSpecification</key>
 			<dict>
 				<key>public.filename-extension</key>

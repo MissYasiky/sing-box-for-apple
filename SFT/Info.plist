@@ -25,7 +25,7 @@
 	</dict>
 	<key>BGTaskSchedulerPermittedIdentifiers</key>
 	<array>
-		<string>io.nekohasekai.sfa.update_profiles</string>
+		<string>com.bainian.sfa.update_profiles</string>
 	</array>
 	<key>CFBundleURLTypes</key>
 	<array>
