@@ -4,7 +4,7 @@
 <dict>
 	<key>com.apple.developer.icloud-container-identifiers</key>
 	<array>
-		<string>iCloud.com.bainian.sfa</string>
+		<string>iCloud.io.bainian.sfa</string>
 	</array>
 	<key>com.apple.developer.icloud-services</key>
 	<array>
@@ -16,11 +16,11 @@
 	</array>
 	<key>com.apple.developer.ubiquity-container-identifiers</key>
 	<array>
-		<string>iCloud.com.bainian.sfa</string>
+		<string>iCloud.io.bainian.sfa</string>
 	</array>
 	<key>com.apple.security.application-groups</key>
 	<array>
-		<string>group.com.bainian.sfa</string>
+		<string>group.io.bainian.sfa</string>
 	</array>
 </dict>
 </plist>

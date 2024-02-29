@@ -4,7 +4,7 @@
 <dict>
 	<key>BGTaskSchedulerPermittedIdentifiers</key>
 	<array>
-		<string>com.bainian.sfa.update_profiles</string>
+		<string>io.bainian.sfa.update_profiles</string>
 	</array>
 	<key>CFBundleDocumentTypes</key>
 	<array>
@@ -19,7 +19,7 @@
 			<string>Owner</string>
 			<key>LSItemContentTypes</key>
 			<array>
-				<string>com.bainian.sfa.profile</string>
+				<string>io.bainian.sfa.profile</string>
 			</array>
 		</dict>
 	</array>
@@ -52,7 +52,7 @@
 	</dict>
 	<key>NSUbiquitousContainers</key>
 	<dict>
-		<key>iCloud.com.bainian.sfa</key>
+		<key>iCloud.io.bainian.sfa</key>
 		<dict>
 			<key>NSUbiquitousContainerIsDocumentScopePublic</key>
 			<true/>
@@ -80,7 +80,7 @@
 			<key>UTTypeIconFiles</key>
 			<array/>
 			<key>UTTypeIdentifier</key>
-			<string>com.bainian.sfa.profile</string>
+			<string>io.bainian.sfa.profile</string>
 			<key>UTTypeTagSpecification</key>
 			<dict>
 				<key>public.filename-extension</key>
@@ -106,7 +106,7 @@
 				<string>AppIcon.icns</string>
 			</array>
 			<key>UTTypeIdentifier</key>
-			<string>com.bainian.sfa.profile</string>
+			<string>io.bainian.sfa.profile</string>
 			<key>UTTypeTagSpecification</key>
 			<dict>
 				<key>public.filename-extension</key>

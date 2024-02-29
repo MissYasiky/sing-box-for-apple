@@ -102,5 +102,5 @@ public struct TypedProfile: Transferable, Codable {
 }
 
 public extension UTType {
-    static var profile: UTType { .init(exportedAs: "com.bainian.sfa.profile") }
+    static var profile: UTType { .init(exportedAs: "io.bainian.sfa.profile") }
 }

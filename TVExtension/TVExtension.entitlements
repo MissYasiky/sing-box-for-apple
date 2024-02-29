@@ -8,7 +8,7 @@
 	</array>
 	<key>com.apple.security.application-groups</key>
 	<array>
-		<string>group.com.bainian.sfa</string>
+		<string>group.io.bainian.sfa</string>
 	</array>
 </dict>
 </plist>

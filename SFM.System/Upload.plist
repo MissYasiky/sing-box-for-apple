@@ -10,9 +10,9 @@
 	<true/>
 	<key>provisioningProfiles</key>
 	<dict>
-		<key>com.bainian.sfa.independent</key>
+		<key>io.bainian.sfa.independent</key>
 		<string>XC io nekohasekai sfa independent</string>
-		<key>com.bainian.sfa.system</key>
+		<key>io.bainian.sfa.system</key>
 		<string>XC io nekohasekai sfa system</string>
 	</dict>
 </dict>

@@ -2,9 +2,9 @@ import Foundation
 
 public enum FilePath {
     #if !NEXT
-        public static let packageName = "com.bainian.sfa"
+        public static let packageName = "io.bainian.sfa"
     #else
-        public static let packageName = "com.bainian.sfa.next"
+        public static let packageName = "io.bainian.sfa.next"
     #endif
 }
 
