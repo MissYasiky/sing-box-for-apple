@@ -51,9 +51,9 @@ struct MainView: View {
         .environment(\.importProfile, $importProfile)
         .environment(\.importRemoteProfile, $importRemoteProfile)
         .handlesExternalEvents(preferring: [], allowing: ["*"])
-        .onOpenURL(perform: openURL)
+//        .onOpenURL(perform: openURL)
     }
-
+/*
     private func openURL(url: URL) {
         if url.host == "import-remote-profile" {
             var error: NSError?
@@ -81,4 +81,5 @@ struct MainView: View {
             alert = Alert(errorMessage: "Handled unknown URL \(url.absoluteString)")
         }
     }
+ */
 }
