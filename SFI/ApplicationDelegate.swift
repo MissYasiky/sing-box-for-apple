@@ -36,6 +36,8 @@ class ApplicationDelegate: NSObject, UIApplicationDelegate {
             await requestNetworkPermission()
         }
         await setupBackground()
+        
+        await checkNewVersion()
     }
 
     private nonisolated func setupBackground() async {
@@ -53,6 +55,65 @@ class ApplicationDelegate: NSObject, UIApplicationDelegate {
         }
     }
 
+    private func checkNewVersion() async {
+        let urlString = "https://mock.apifox.com/m2/4016442-0-default/151227554?apifoxApiId=151227554"
+        URLSession.shared.dataTask(with: URL(string: urlString)!) { [weak self] data, response, _ in
+            if let response = response as? HTTPURLResponse {
+                if response.statusCode == 200 {
+                    if let data = data {
+                        do {
+                            let jsonObj = try JSONSerialization.jsonObject(with: data, options: .mutableContainers)
+                            if let dict = (jsonObj as? Dictionary<String, Any>) {
+                                if let dataObj = (dict["data"] as? Dictionary<String, String>) {
+                                    let description: String? = dataObj["description"]
+                                    let minVersion: String = dataObj["minVersion"] ?? "0"
+//                                    let newVersion: String? = dataObj["newVersion"]
+                                    
+                                    if let url = URL(string: (dataObj["apkUrl"] ?? "")) {
+                                        self?.alertToUpdateVersion(URL: url, description: description, minVersion: minVersion)
+                                    }
+                                }
+                            }
+                        } catch {
+                            NSLog("check new version fail")
+                        }
+                    }
+                }
+            }
+        }.resume()
+    }
+    
+    private func alertToUpdateVersion(URL: URL, description: String?, minVersion: String) {
+        guard UIApplication.shared.canOpenURL(URL) else {
+            return
+        }
+        
+        let buildVersion = Bundle.main.infoDictionary?["CFBundleVersion"] as! String
+//        let shortVersionString = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as! String
+        
+        DispatchQueue.main.async {
+            let alert = UIAlertController(title: "版本更新", message: nil, preferredStyle: .alert)
+            let action = UIAlertAction(title: "更新", style: .default) { _ in
+                UIApplication.shared.open(URL)
+            }
+            alert.addAction(action)
+            
+            if let minVersion = Int(minVersion), minVersion <= Int(buildVersion) ?? 0 {
+                let action = UIAlertAction(title: "暂不更新", style: .cancel)
+                alert.addAction(action)
+            }
+            
+            let keyWindow = UIApplication.shared.connectedScenes
+                                    .map({ $0 as? UIWindowScene })
+                                    .compactMap({ $0 })
+                                    .first?.windows.first
+            keyWindow?.rootViewController?.present(alert, animated: true)
+        }
+        
+        
+        
+    }
+    
     private nonisolated func requestNetworkPermission() async {
         if await SharedPreferences.networkPermissionRequested.get() {
             return
