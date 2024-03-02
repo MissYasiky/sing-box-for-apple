@@ -67,10 +67,10 @@ class ApplicationDelegate: NSObject, UIApplicationDelegate {
                                 if let dataObj = (dict["data"] as? Dictionary<String, String>) {
                                     let description: String? = dataObj["description"]
                                     let minVersion: String = dataObj["minVersion"] ?? "0"
-//                                    let newVersion: String? = dataObj["newVersion"]
+                                    let newVersion: String = dataObj["newVersion"] ?? "99998"
                                     
                                     if let url = URL(string: (dataObj["apkUrl"] ?? "")) {
-                                        self?.alertToUpdateVersion(URL: url, description: description, minVersion: minVersion)
+                                        self?.alertToUpdateVersion(URL: url, description: description, minVersion: minVersion, newVersion: newVersion)
                                     }
                                 }
                             }
@@ -83,13 +83,16 @@ class ApplicationDelegate: NSObject, UIApplicationDelegate {
         }.resume()
     }
     
-    private func alertToUpdateVersion(URL: URL, description: String?, minVersion: String) {
+    private func alertToUpdateVersion(URL: URL, description: String?, minVersion: String, newVersion: String) {
         guard UIApplication.shared.canOpenURL(URL) else {
             return
         }
         
         let buildVersion = Bundle.main.infoDictionary?["CFBundleVersion"] as! String
 //        let shortVersionString = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as! String
+        if let newVersion = Int(newVersion), newVersion <= Int(buildVersion) ?? 99999 {
+            return
+        }
         
         DispatchQueue.main.async {
             let alert = UIAlertController(title: "版本更新", message: nil, preferredStyle: .alert)
